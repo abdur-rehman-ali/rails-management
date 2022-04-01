@@ -4,6 +4,7 @@ class StudentsController < ApplicationController
     end
 
     def new
+        puts "new called"
         @student = Student.new 
     end
 
