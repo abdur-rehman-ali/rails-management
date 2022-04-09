@@ -25,6 +25,17 @@ class StudentsController < ApplicationController
         @student = Student.find(params[:id])
     end
 
+    def update 
+        @student = Student.find(params[:id])
+        if @student.update(students_params)
+            #redirect to show page of current updated student
+            redirect_to student_path(@student)
+        else  
+            #if any validation error occur then update action call
+            render :update
+        end
+    end
+
     private 
     def students_params
         params.require(:student).permit(:name,:email,:age)
