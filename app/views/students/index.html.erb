@@ -20,7 +20,10 @@
       <td><%= student.email %></td>
       <td>
       <%= link_to 'Show' , student %> ||
-      <%= link_to 'Edit' , edit_student_path(student) %>
+      <%= link_to 'Edit' , edit_student_path(student) %> || 
+      <%= link_to 'Delete' , student , method: :delete, data: {
+        confirm: 'Are you sure you want to delete?'
+      } %>
       </td>
     </tr>    
     <% end %>
