@@ -19,7 +19,8 @@
       <td><%= student.age %></td>
       <td><%= student.email %></td>
       <td>
-      <%= link_to 'Show' , student %>
+      <%= link_to 'Show' , student %> ||
+      <%= link_to 'Edit' , edit_student_path(student) %>
       </td>
     </tr>    
     <% end %>
