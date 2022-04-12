@@ -14,7 +14,8 @@ class StudentsController < ApplicationController
     def create 
         @student = Student.new(students_params) 
         if  @student.save
-            PostMailer.post_created.deliver_later
+            # PostMailer.post_created.deliver_later
+            PostMailer.with(user: Student.first.name).post_created.deliver_later
             redirect_to students_path , notice: 'Student has been created successfully'
         else
             render :new

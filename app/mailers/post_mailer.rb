@@ -6,6 +6,7 @@ class PostMailer < ApplicationMailer
   #   en.post_mailer.post_created.subject
   #
   def post_created
+    @name = params[:user]
     @greeting = "Hi, Thanks for joining"
 
     mail(
