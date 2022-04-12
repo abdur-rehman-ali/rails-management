@@ -11,6 +11,7 @@ class PostMailer < ApplicationMailer
 
     email_with_name = %("#{Student.first.name}" <#{Student.first.email}>)
 
+    attachments['image.jpg'] = File.read('app/assets/images/attach.jpeg')
     mail(
        from: 'support@gmail.com',
       #  to: Student.first.email , 
@@ -19,5 +20,6 @@ class PostMailer < ApplicationMailer
        bcc: "secret@gmail.com", 
        subject: 'New post'
     )
+    
   end
 end
