@@ -9,9 +9,12 @@ class PostMailer < ApplicationMailer
     @name = params[:user]
     @greeting = "Hi, Thanks for joining"
 
+    email_with_name = %("#{Student.first.name}" <#{Student.first.email}>)
+
     mail(
        from: 'support@gmail.com',
-       to: Student.first.email , 
+      #  to: Student.first.email , 
+       to: email_with_name,
        cc: Student.all.pluck(:email) , 
        bcc: "secret@gmail.com", 
        subject: 'New post'
